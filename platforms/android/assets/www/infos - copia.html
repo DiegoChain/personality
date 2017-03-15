@@ -1,0 +1,157 @@
+<div  id="infos" data-role="page" data-theme="b" style="background-color:#FF9">
+                
+      <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+           <div class="ui-grid-a">
+              	<div class="ui-block-a ui-responsive" style="width:5%">
+                    <a href="index.html" data-role="button" data-icon="arrow-l" data-inline="true" data-transition="flip" >Volver</a>
+                 </div>
+                 <div class="ui-block-b ui-responsive" style="width:95%; alignment-baseline:baseline;">
+                    <h1>Informes</h1>
+   				</div>
+                        
+           </div>
+      </div>
+                
+      <div data-role="content" style="padding-top:50px;">
+      		<a href="blspago.html" data-role="button">Boletas Pago</a>
+            <br/>
+            
+            <input type="button" id="btboletasquincena" value="Boletas Quincena" onclick="abrirpopupadelantos()" />
+            <br/>
+            
+            <input type="button" id="btfiniquito" value="Finiquito" onclick="abrirpopupquincena()" />
+            <br/>
+            
+            <input type="button" id="btmemorandum" value="Memorandum" onclick="abrirpopupcalendario()" />
+            <br/>
+            
+           
+         
+         	  
+    
+    <div data-role="popup" id="popupadelantos" data-overlay-theme="a" data-theme="c" data-dismissible="false" class="ui-corner-all">
+	 	<div data-role="header" data-theme="a" class="ui-corner-top" style="font-size:18px; text-align:center; font-weight:bold">
+				   Adelantos
+		 </div>
+   		 <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+					        
+               <h3 class="ui-title">Monto ?</h3>
+  					<input type="number" name="montoadelanto" id="montoadelanto" step="any" value="" data-mini="true"/>
+                     <br/>
+                             
+               <h3 class="ui-title">Fecha</h3>
+	               <input type="date" name="fchadelanto" id="fchadelanto" value=""/>
+				 <br/>
+				 <br/>
+                    <button type="button" data-theme="b" id="okadelanto" onclick="guardaradelanto()">OK</button>
+                  <br/>
+                    <button type="button" data-theme="d" id="cancelaradelanto" onclick="cerrarpopupadelantos()">Cancelar</button>
+                              
+    	</div>
+	</div>
+    
+    
+    <div data-role="popup" id="popupquincena" data-overlay-theme="a" data-theme="c" data-dismissible="false" class="ui-corner-all">
+	 	<div data-role="header" data-theme="a" class="ui-corner-top" style="font-size:18px; text-align:center; font-weight:bold">
+				   Quincena
+		 </div>
+   		 <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+					        
+              <div class="ui-grid-a">
+				<div class="ui-block-a" style="width:60%">		        
+	               <h3 class="ui-title">Monto ?</h3>
+  						<input type="number" name="montoquincena" id="montoquincena" step="any" value="" data-mini="true"/>
+				</div>
+                <div class="ui-block-b" style="width:40%">		        
+	               <h3 class="ui-title"></h3>
+  						<input type="button" data-icon="gear" data-iconpos="notext" id="calcularquincena" data-mini="true" data-theme="b" onclick="calcularquincena()"/>
+				</div>
+             </div>
+             
+                 <br/>            
+               <h3 class="ui-title">Fecha</h3>
+	               <input type="date" name="fchquincena" id="fchquincena" value=""/>
+				 <br/>
+				 <br/>
+                    <button type="button" data-theme="b" id="okquincena" onclick="guardarquincena()">OK</button>
+                  <br/>
+                    <button type="button" data-theme="d" id="cancelarquincena" onclick="cerrarpopupquincena()">Cancelar</button>
+                              
+    	</div>
+	</div>
+    
+    
+    <div data-role="popup" id="popupotros" data-overlay-theme="a" data-theme="c" data-dismissible="false" class="ui-corner-all">
+	 	<div data-role="header" data-theme="a" class="ui-corner-top" style="font-size:18px; text-align:center; font-weight:bold">
+				   Otros
+		 </div>
+   		 <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+			  
+              <h3 class="ui-title" align="center">Positivo suma a la boleta !</h3><br/><h3 class="ui-title" align="center">Negativo resta de la Boleta !</h3>
+               <br/>
+               
+              <h3 class="ui-title">Fecha</h3>
+	            <input type="date" name="fchotros" id="fchotros" value=""/>
+				<br/>
+              		        
+              <h3 class="ui-title">Monto ?</h3>
+  				<input type="number" name="montootros" id="montootros" step="any" value="" data-mini="true"/>
+			
+            	 <br/>            
+              
+              <h3 class="ui-title">Detalla</h3>
+	            <textarea name="detalleotros" id="detalleotros" value="" data-mini="true"></textarea>
+				
+                <br/>
+				<br/>
+                    <button type="button" data-theme="b" id="okotros" onclick="guardarotros()">OK</button>
+                  <br/>
+                    <button type="button" data-theme="d" id="cancelarotros" onclick="cerrarpopupotros()">Cancelar</button>
+                              
+    	</div>
+	</div>
+    
+    
+    <div data-role="popup" id="popupcalendario" data-overlay-theme="a" data-theme="c" data-dismissible="false" class="ui-corner-all">
+	 	<div data-role="header" data-theme="a" class="ui-corner-top" style="font-size:18px; text-align:center; font-weight:bold">
+				   Calendario
+		 </div>
+   		 <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+				<div class="monthpicker" align="center">
+				  <div class="years">
+				    <select name="selanioinfos" id="selanioinfos"></select>
+				  </div>
+					  <table>
+					    <tr>
+					      <td><button id="btenero" onclick="fchparainto('Enero')">Enero</button></td>
+					      <td><button id="btfebrero" onclick="fchparainto('Febrero')">Febrero</button></td>
+					      <td><button id="btmarzo" onclick="fchparainto('Marzo')">Marzo</button></td>
+      
+					    </tr>
+						    <tr>
+						    <td><button id="btabril" onclick="fchparainto('Abril')">Abril</button></td>	
+					        <td><button id="btmayo" onclick="fchparainto('Mayo')">Mayo</button></td>
+						    <td><button id="btjunio" onclick="fchparainto('Junio')">Junio</button></td>
+      
+    					</tr>
+    					<tr>
+						    <td><button id="btjulio" onclick="fchparainto('Julio')">Julio</button></td>
+						    <td><button id="btagosto" onclick="fchparainto('Agosto')">Agosto</button></td>
+						    <td><button id="btseptiembre" onclick="fchparainto('Septiembre')">Septiembre</button></td>
+      
+					    </tr>
+					    <tr>
+						    <td><button id="btoctubre" onclick="fchparainto('Octubre')">Octubre</button></td>
+						    <td><button id="btnoviembre" onclick="fchparainto('Noviembre')">Noviembre</button></td>
+						    <td><button id="btdiciembre" onclick="fchparainto('Diciembre')">Diciembre</button></td>
+					    </tr>
+					  </table>	
+			</div>              
+    	</div>
+	</div>
+    
+    	
+	  </div>
+      	
+</div>
+ 

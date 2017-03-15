@@ -1,0 +1,141 @@
+<div  id="dialogo" data-role="page" data-theme="b" style="background-color:#FF9">
+                
+      <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+           <div class="ui-grid-a">
+              	<div class="ui-block-a ui-responsive" style="width:5%">
+                    <a href="personal.html" data-role="button" data-icon="arrow-l" data-inline="true" data-transition="flip" >Volver</a>
+                 </div>
+                 <div class="ui-block-b ui-responsive" style="width:95%; alignment-baseline:baseline;">
+                    <h1 id="username"></h1>
+   				</div>
+                        
+           </div>
+      </div>
+                
+      <div data-role="content" style="padding-top:50px;">
+      		<input type="button" id="btfaltas" value="Faltas"  onclick="abrirpopupfaltas()" />
+            <br/>
+            
+            <input type="button" id="btadelantos" value="Adelantos" onclick="abrirpopupadelantos()" />
+            <br/>
+            
+            <input type="button" id="btquincenas" value="Quincena" onclick="abrirpopupquincena()" />
+            <br/>
+            
+            <input type="button" id="btotros" value="Otros" onclick="abrirpopupotros()" />
+            <br/>
+         
+         	<div data-role="popup" id="popupfaltas" data-overlay-theme="a" data-theme="c" data-dismissible="false" class="ui-corner-all">
+	 	<div data-role="header" data-theme="a" class="ui-corner-top" style="font-size:18px; text-align:center; font-weight:bold">
+				   Tipo de Falta
+		 </div>
+   		 <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+					        
+               <h3 class="ui-title">Tipo ?</h3>
+			        <select name="seltipofalta" id="seltipofalta">
+							<option value="1" selected="selected">Sin Licencia</option>
+                            <option value="2">Con Licencia</option>
+                            <option value="3">Falta Medica</option>
+					</select>
+                     <br/>
+                             
+               <h3 class="ui-title">Fecha</h3>
+	               <input type="date" name="fchfalta" id="fchfalta" value=""/>
+				 <br/>
+				 <br/>
+                    <button type="button" data-theme="b" id="okfalta" onclick="guardarfalta()">OK</button>
+                  <br/>
+                    <button type="button" data-theme="d" id="cancelarfalta" onclick="cerrarpopupfaltas()">Cancelar</button>
+                              
+    	</div>
+	</div>  
+    
+    <div data-role="popup" id="popupadelantos" data-overlay-theme="a" data-theme="c" data-dismissible="false" class="ui-corner-all">
+	 	<div data-role="header" data-theme="a" class="ui-corner-top" style="font-size:18px; text-align:center; font-weight:bold">
+				   Adelantos
+		 </div>
+   		 <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+					        
+               <h3 class="ui-title">Monto ?</h3>
+  					<input type="number" name="montoadelanto" id="montoadelanto" step="any" value="" data-mini="true"/>
+                     <br/>
+                             
+               <h3 class="ui-title">Fecha</h3>
+	               <input type="date" name="fchadelanto" id="fchadelanto" value=""/>
+				 <br/>
+				 <br/>
+                    <button type="button" data-theme="b" id="okadelanto" onclick="guardaradelanto()">OK</button>
+                  <br/>
+                    <button type="button" data-theme="d" id="cancelaradelanto" onclick="cerrarpopupadelantos()">Cancelar</button>
+                              
+    	</div>
+	</div>
+    
+    
+    <div data-role="popup" id="popupquincena" data-overlay-theme="a" data-theme="c" data-dismissible="false" class="ui-corner-all">
+	 	<div data-role="header" data-theme="a" class="ui-corner-top" style="font-size:18px; text-align:center; font-weight:bold">
+				   Quincena
+		 </div>
+   		 <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+					        
+              <div class="ui-grid-a">
+				<div class="ui-block-a" style="width:60%">		        
+	               <h3 class="ui-title">Monto ?</h3>
+  						<input type="number" name="montoquincena" id="montoquincena" step="any" value="" data-mini="true"/>
+				</div>
+                <div class="ui-block-b" style="width:40%">		        
+	               <h3 class="ui-title"></h3>
+  						<input type="button" data-icon="gear" data-iconpos="notext" id="calcularquincena" data-mini="true" data-theme="b" onclick="calcularquincena()"/>
+				</div>
+             </div>
+             
+                 <br/>            
+               <h3 class="ui-title">Fecha</h3>
+	               <input type="date" name="fchquincena" id="fchquincena" value=""/>
+				 <br/>
+				 <br/>
+                    <button type="button" data-theme="b" id="okquincena" onclick="guardarquincena()">OK</button>
+                  <br/>
+                    <button type="button" data-theme="d" id="cancelarquincena" onclick="cerrarpopupquincena()">Cancelar</button>
+                              
+    	</div>
+	</div>
+    
+    
+    <div data-role="popup" id="popupotros" data-overlay-theme="a" data-theme="c" data-dismissible="false" class="ui-corner-all">
+	 	<div data-role="header" data-theme="a" class="ui-corner-top" style="font-size:18px; text-align:center; font-weight:bold">
+				   Otros
+		 </div>
+   		 <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+			  
+              <h3 class="ui-title" align="center">Positivo suma a la boleta !</h3><br/><h3 class="ui-title" align="center">Negativo resta de la Boleta !</h3>
+               <br/>
+               
+              <h3 class="ui-title">Fecha</h3>
+	            <input type="date" name="fchotros" id="fchotros" value=""/>
+				<br/>
+              		        
+              <h3 class="ui-title">Monto ?</h3>
+  				<input type="number" name="montootros" id="montootros" step="any" value="" data-mini="true"/>
+			
+            	 <br/>            
+              
+              <h3 class="ui-title">Detalla</h3>
+	            <textarea name="detalleotros" id="detalleotros" value="" data-mini="true"></textarea>
+				
+                <br/>
+				<br/>
+                    <button type="button" data-theme="b" id="okotros" onclick="guardarotros()">OK</button>
+                  <br/>
+                    <button type="button" data-theme="d" id="cancelarotros" onclick="cerrarpopupotros()">Cancelar</button>
+                              
+    	</div>
+	</div>
+    
+    	<div id="dividbtaja">
+		<button type="button" data-theme="d" id="btbaja" onclick="darbaja()">Dar de Baja</button>
+      </div>	
+	  </div>
+      
+</div>
+ 

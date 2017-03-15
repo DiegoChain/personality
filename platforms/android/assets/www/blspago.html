@@ -1,0 +1,42 @@
+<div  id="blspago" data-role="page" data-theme="b" style="background-color:#FF9">
+    <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+        <div class="ui-grid-a">
+           	<div class="ui-block-a ui-responsive" style="width:5%">
+                <a href="index.html" data-role="button" data-icon="arrow-l" data-inline="true" data-transition="flip" >Volver</a>
+             </div>
+	        <div class="ui-block-b ui-responsive" style="width:95%; alignment-baseline:baseline;">
+            	<h1>Boletas de Pago</h1>
+   	    	</div>
+                        
+        </div>
+   </div>
+                
+      <div data-role="content" style="padding-top:50px;">
+      		  <h3 class="ui-title">Personal</h3>
+			        <select name="selboletapago" id="selboletapago"></select>
+                     <br/>
+               
+               <div class="ui-grid-a">              
+	           		<div class="ui-block-a ui-responsive" style="width:65%"> 	   
+                       <h3 class="ui-title">Fecha</h3>
+		            	   <input type="text" id="fchblspago" name="fchblspago" readonly="readonly" />
+        	    	</div>
+                    <div class="ui-block-b" style="width:35%;">
+                    	<h3 class="ui-title">&nbsp;</h3>
+                       	<a href="calendario.html" data-rel="dialog" data-role="button" data-transition="fade">Ver Meses</a>
+                    </div>
+               </div>           
+                 <br/>
+                 	 <a href="#monthpicker" id="monthpicker"></a>
+                 <br/>
+                 <br/>
+                 <br/>
+                    <button type="button" data-theme="f" id="okblspago" onclick="okblspago()">OK</button>
+                  <br/>
+                    <a href="infos.html" data-role="button" data-transition="fade" data-theme="d">Salir</a>
+                    
+                   <div id="prueba"></div>
+	  </div>
+      	
+</div>
+ 
